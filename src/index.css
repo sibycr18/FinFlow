@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0f172a] text-gray-100;
+  }
+
+  /* Remove spinners from number inputs */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Firefox scrollbar styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(6, 182, 212, 0.3) rgba(30, 41, 59, 0.3);
+  }
+
+  /* Hide scrollbar buttons in Firefox */
+  * {
+    scrollbar-width: thin;
+  }
+
+  /* Webkit scrollbar styles */
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-slate-800/30;
+    border-radius: 100vh;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-cyan-500/30 hover:bg-cyan-500/50;
+    border-radius: 100vh;
+  }
+
+  /* Hide scrollbar buttons in Webkit */
+  *::-webkit-scrollbar-button:single-button {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    display: none;
+  }
+
+  *::-webkit-scrollbar-button {
+    display: none !important;
+  }
+
+  /* Hide scrollbar corner */
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Custom select styles */
+  select {
+    @apply appearance-none bg-[#1e293b] border border-slate-700 text-gray-100 px-4 py-2 pr-8 rounded-xl
+    focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 outline-none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+  }
+}
+
+@layer components {
+  .card-gradient {
+    @apply bg-gradient-to-br from-[#1e293b] to-[#0f172a] backdrop-blur-xl;
+  }
+  
+  .card-glass {
+    @apply bg-[#1e293b]/90 backdrop-blur-xl border border-slate-700/50;
+  }
+
+  .input-dark {
+    @apply bg-[#1e293b] border border-slate-700 text-gray-100 px-4 py-2 rounded-xl
+    focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 outline-none
+    placeholder:text-slate-500;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-2 rounded-xl font-medium
+    hover:from-cyan-500 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500/50
+    transition-all duration-200 shadow-lg shadow-cyan-500/20;
+  }
+
+  .stat-card {
+    @apply card-gradient rounded-2xl relative overflow-hidden
+    border border-slate-700/50 shadow-lg shadow-slate-900/20;
+  }
+
+  .stat-card::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-10;
+  }
+
+  .expense-item {
+    @apply bg-slate-800/80 border border-slate-700/50 backdrop-blur-xl rounded-xl p-3
+    hover:bg-slate-800/90 transition-colors duration-200 shadow-md shadow-black/10;
+  }
+
+  .custom-scrollbar {
+    @apply overflow-auto;
+    scrollbar-gutter: stable;
+  }
+
+  .category-container {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .category-container.expanded {
+    @apply fixed inset-6 z-50 m-auto bg-[#1e293b] shadow-2xl;
+  }
+
+  .scrollable-container {
+    @apply overflow-auto;
+    scrollbar-gutter: stable;
+  }
+
+  .table-wrapper {
+    @apply overflow-x-auto;
+    scrollbar-gutter: stable;
+  }
+}
