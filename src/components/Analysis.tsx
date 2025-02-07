@@ -181,19 +181,19 @@ export function Analysis({ monthlyData }: AnalysisProps) {
         <select
           value={selectedDate.month}
           onChange={(e) => setSelectedDate(prev => ({ ...prev, month: parseInt(e.target.value) }))}
-          className="bg-transparent text-sm text-slate-200 border-none focus:ring-0"
+          className="bg-transparent text-sm text-slate-200 border-none focus:ring-0 cursor-pointer appearance-none hover:text-white transition-colors [&>option]:bg-slate-800 [&>option]:text-slate-200"
         >
           {months.map((month, index) => (
-            <option key={month} value={index}>{month}</option>
+            <option key={month} value={index} className="bg-slate-800 text-slate-200">{month}</option>
           ))}
         </select>
         <select
           value={selectedDate.year}
           onChange={(e) => setSelectedDate(prev => ({ ...prev, year: parseInt(e.target.value) }))}
-          className="bg-transparent text-sm text-slate-200 border-none focus:ring-0"
+          className="bg-transparent text-sm text-slate-200 border-none focus:ring-0 cursor-pointer appearance-none hover:text-white transition-colors [&>option]:bg-slate-800 [&>option]:text-slate-200"
         >
           {years.map(year => (
-            <option key={year} value={year}>{year}</option>
+            <option key={year} value={year} className="bg-slate-800 text-slate-200">{year}</option>
           ))}
         </select>
       </div>
